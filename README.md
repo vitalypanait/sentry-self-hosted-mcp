@@ -48,7 +48,7 @@ Add to `~/.cursor/mcp.json`:
   "mcpServers": {
     "sentry-selfhosted": {
       "command": "npx",
-      "args": ["sentry-self-hosted-mcp"],
+      "args": ["@vitaliypanait/sentry-self-hosted-mcp"],
       "env": {
         "SENTRY_HOST": "https://sentry.example.com",
         "SENTRY_TOKEN": "sntrys_...",
@@ -86,7 +86,7 @@ Add to `claude_desktop_config.json`:
   "mcpServers": {
     "sentry-selfhosted": {
       "command": "npx",
-      "args": ["sentry-self-hosted-mcp"],
+      "args": ["@vitaliypanait/sentry-self-hosted-mcp"],
       "env": {
         "SENTRY_HOST": "https://sentry.example.com",
         "SENTRY_TOKEN": "sntrys_...",
