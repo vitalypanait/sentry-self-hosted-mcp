@@ -9,6 +9,7 @@ MCP (Model Context Protocol) server for integrating self-hosted Sentry with AI a
 | `list_projects` | List all projects in the organization |
 | `list_issues` | List issues with filtering by project, status, and level |
 | `get_issue` | Issue details by numeric ID or short ID (e.g. `PAYOUT-A6Z`) |
+| `get_issue_with_stacktrace` | Issue metadata + latest event stacktrace in a single call |
 | `get_latest_event` | Latest event for an issue |
 | `get_event` | Specific event by project slug and event ID |
 | `get_stack_frames` | Stack frames for an event, with an option to show only in-app frames |
@@ -77,6 +78,14 @@ Add to `claude_desktop_config.json`:
   }
 }
 ```
+
+## Cursor Rule
+
+To make Cursor automatically fetch Sentry context when you mention an issue or ask about a bug, add a rule to your project.
+
+Copy [`examples/cursor-rule.mdc`](examples/cursor-rule.mdc) into your project as `.cursor/rules/sentry.mdc`.
+
+With `alwaysApply: false` the rule activates only when relevant (recommended). Change to `alwaysApply: true` to apply it to every request in the project.
 
 ## Development
 

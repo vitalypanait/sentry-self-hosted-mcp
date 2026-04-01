@@ -143,6 +143,20 @@ server.registerTool(
   }
 );
 
+server.registerTool(
+  'get_issue_with_stacktrace',
+  {
+    description: 'Get issue metadata and latest event stacktrace in a single call.',
+    inputSchema: {
+      issue_id: z.string().describe('Sentry issue ID (numeric) or short ID (e.g. "PAYOUT-A6Z")'),
+    },
+  },
+  async ({ issue_id }) => {
+    const { issue, event } = await client.getIssueWithStacktrace(issue_id);
+    return { content: [{ type: 'text', text: client.formatIssueWithStacktrace(issue, event) }] };
+  }
+);
+
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);

@@ -183,6 +183,18 @@ export class SentryClient {
     return lines.join('\n');
   }
 
+  async getIssueWithStacktrace(issueId: string): Promise<{ issue: SentryIssue; event: SentryEvent }> {
+    const [issue, event] = await Promise.all([
+      this.getIssue(issueId),
+      this.getLatestEvent(issueId),
+    ]);
+    return { issue, event };
+  }
+
+  formatIssueWithStacktrace(issue: SentryIssue, event: SentryEvent): string {
+    return [this.formatIssue(issue), '', this.formatEvent(event)].join('\n');
+  }
+
   formatIssue(issue: SentryIssue): string {
     const lines: string[] = [];
     lines.push(`# Issue ${issue.shortId}`);

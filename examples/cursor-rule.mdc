@@ -1,0 +1,9 @@
+---
+description: Automatically fetch Sentry issue context when debugging errors
+globs:
+alwaysApply: false
+---
+
+When the user mentions a Sentry issue ID, error, crash, or asks to debug/investigate a bug,
+use the `get_issue_with_stacktrace` tool from the sentry-selfhosted MCP server to fetch
+the full issue context and stacktrace before answering.
