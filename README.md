@@ -47,6 +47,24 @@ Add to `~/.cursor/mcp.json`:
 {
   "mcpServers": {
     "sentry-selfhosted": {
+      "command": "npx",
+      "args": ["sentry-self-hosted-mcp"],
+      "env": {
+        "SENTRY_HOST": "https://sentry.example.com",
+        "SENTRY_TOKEN": "sntrys_...",
+        "SENTRY_ORG_SLUG": "my-org"
+      }
+    }
+  }
+}
+```
+
+**Local development alternative** (if running from a cloned repo):
+
+```json
+{
+  "mcpServers": {
+    "sentry-selfhosted": {
       "command": "node",
       "args": ["/absolute/path/to/sentry-mcp/dist/index.js"],
       "env": {
@@ -67,8 +85,8 @@ Add to `claude_desktop_config.json`:
 {
   "mcpServers": {
     "sentry-selfhosted": {
-      "command": "node",
-      "args": ["/absolute/path/to/sentry-mcp/dist/index.js"],
+      "command": "npx",
+      "args": ["sentry-self-hosted-mcp"],
       "env": {
         "SENTRY_HOST": "https://sentry.example.com",
         "SENTRY_TOKEN": "sntrys_...",

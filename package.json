@@ -7,10 +7,18 @@
   "bin": {
     "sentry-self-hosted-mcp": "dist/index.js"
   },
+  "files": ["dist"],
+  "license": "MIT",
+  "keywords": ["mcp", "sentry", "self-hosted", "cursor"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vitalypanait/sentry-self-hosted-mcp"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
